@@ -28,4 +28,40 @@ public class Liste {
         head = node;
         return head;
     }
+
+    public String printFromHead()
+    {
+        Node n = head;
+        String res = "";
+
+        if(isEmpty())
+        {
+            System.out.println("List is empty");
+        }
+
+        while(n != null)
+        {
+            res += n.data;
+            n = n.next;
+        }
+        return res;
+    }
+
+    public String printFromTail()
+    {
+        Node n = tail;
+        String res = "";
+
+        if(isEmpty())
+        {
+            System.out.println("List is empty");
+        }
+
+        while(n != null)
+        {
+            res += n.data;
+            n = n.previous;
+        }
+        return res;
+    }
 }
