@@ -11,21 +11,19 @@ public class Liste {
         return false;
     }
 
-    public Node insertFromHead(String s)
+    public Node insertFromHead(Node n)
     {
-
-        Node node = new Node(s);
 
         if (isEmpty())
         {
-            head = node;
-            tail = node;
+            head = n;
+            tail = n;
             return head;
         }
 
-        head.previous = node;
-        node.next = head;
-        head = node;
+        head.previous = n;
+        n.next = head;
+        head = n;
         return head;
     }
 
@@ -63,5 +61,24 @@ public class Liste {
             n = n.previous;
         }
         return res;
+    }
+
+    public Node removeFromHead()
+    {
+        if(isEmpty())
+        {
+            return null;
+        }
+        if(head == tail)
+        {
+            head = null;
+            return head;
+        }
+
+        Node n = head;
+        head.next.previous = null;
+        head = head.next;
+
+        return n;
     }
 }
